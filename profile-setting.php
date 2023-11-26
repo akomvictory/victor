@@ -269,13 +269,13 @@ require "header1.php";
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Username</label>
-                                        <input type="text" name="username" class="form-control form-control-lg" placeholder="Username" value="<?=$username ?>" readonly>        
+                                        <input type="text" name="username" class="form-control form-control-lg" placeholder="Username" value="<?=$username ?>" >        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="text" name="email" value="<?=$email ?>" class="form-control form-control-lg" placeholder="Email"  readonly>        
+                                        <input type="text" name="email" value="<?=$email ?>" class="form-control form-control-lg" placeholder="Email" >        
                                     </div>
                                 </div>
                             </div>
@@ -285,13 +285,13 @@ require "header1.php";
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Mobile</label>
-                                        <input type="text" name="mobile" class="form-control form-control-lg" value="<?=$mobile ?>" placeholder="Mobile"  disabled>        
+                                        <input type="text" name="mobile" class="form-control form-control-lg" value="<?=$mobile ?>" placeholder="Mobile" >        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Country</label>
-                                        <input type="text" class="form-control" value="<?=$country ?>" disabled>    
+                                        <input type="text" class="form-control" value="<?=$country ?>">    
                                     </div>
                                 </div>
                                 <div class="col-md-6">
