@@ -10,7 +10,7 @@ if(!isset($_SESSION['username'])){
 
   $username = $_SESSION['username'];
 
-    $qry_user = "SELECT * FROM profile WHERE user_name='$username'";
+    $qry_user = "SELECT * FROM profile WHERE username='$username'";
     $res = mysqli_query($con, $qry_user);
     
     if(mysqli_num_rows($res) > 0){ 
@@ -22,12 +22,16 @@ if(!isset($_SESSION['username'])){
         $email = $fetch_data['email'];
         $country = $fetch_data['country'];
         $address = $fetch_data['address'];
+        $mobile = $fetch_data['mobile'];
         $state = $fetch_data['state'];
         $zip = $fetch_data['zip'];
         $city = $fetch_data['city'];
         }
 
     }
+
+    if(isset($_POST['update_profile'])){
+
 
     if(isset($_FILES['image'])){
            
@@ -65,9 +69,12 @@ if(!isset($_SESSION['username'])){
      $update_profile ="UPDATE `profile` SET `image` = 'uploads/$file_name', `first_name` = '$first_name', `last_name` = '$last_name', `username` = '$username', `email` = '$email', `mobile` = '$mobile', `country` = '$country', `address` = '$address', `state` = '$state', `zip` = '$zip', `city` = '$city' WHERE `username` = $username";
      $update_check = mysqli_query($con, $update_profile);
 
-     header('location: dashboard.php');
+     $update_usertable ="UPDATE `usertable` SET  `firstname` = '$first_name', `lastname` = '$last_name', `email` = '$email', `username` = '$username', WHERE `username` = $username";
+     $update_usertable_check = mysqli_query($con, $update_profile);
 
-    
+     header('location: logout.php');
+
+    }
 ?>
 
 
@@ -205,58 +212,11 @@ Our goal is to provide our investors with a reliable source of high income, whil
   </div>
   <div class="page-wrapper">
       <!-- header-section start  -->
-  <header class="header">
-    <div class="header__bottom">
-      <div class="container">
-        <nav class="navbar navbar-expand-xl p-0 align-items-center">
-          <a class="site-logo site-title" href="https://legaltrademining.com"><img src="https://legaltrademining.com/assets/images/logoIcon/logo.png" alt="site-logo"></a>
-          <ul class="account-menu responsive-account-menu ml-3">
-                        <li class="icon"><a href="https://legaltrademining.com/user/dashboard"><i class="las la-user"></i></a></li>
-                      </ul> 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="menu-toggle"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav main-menu ml-auto">
-              <li> <a href="https://legaltrademining.com/user/dashboard">Dashboard</a></li>
-              <li><a href="https://legaltrademining.com/user/plan">Investment</a></li>
-              <li><a href="https://legaltrademining.com/user/deposit">Deposit</a></li>
-              <li><a href="https://legaltrademining.com/user/withdraw">Withdraw</a></li>
-              <li><a href="https://legaltrademining.com/user/transactions/deposit-wallet">Transactions</a></li>
-              <li class="menu_has_children"><a href="#0">Referrals</a>
-                <ul class="sub-menu">
-                  <li><a href="https://legaltrademining.com/user/referral/users">Referred Users</a></li>
-                  <li><a href="https://legaltrademining.com/user/referral/commissions/deposit">Referral Commissions</a></li>
-                </ul>
-              </li>
-              <li class="menu_has_children"><a href="#0">Account</a>
-                <ul class="sub-menu">
-                  <li><a href="https://legaltrademining.com/user/profile-setting">Profile Setting</a></li>
-                                    <li><a href="https://legaltrademining.com/user/change-password">Change Password</a></li>
-                  <li><a href="https://legaltrademining.com/ticket">
-                    Support Ticket</a></li>
-                  <li><a href="https://legaltrademining.com/user/promotional-tool">Promotional Tool</a></li>
-                  <li><a href="https://legaltrademining.com/user/twofactor">2FA Security</a></li>
-                  <li><a href="https://legaltrademining.com/logout"> Logout</a></li>
-                </ul>
-              </li>
-            </ul>
-            <div class="nav-right">
-              <ul class="account-menu ml-3">
-                                <li class="icon"><a href="https://legaltrademining.com/user/dashboard"><i class="las la-user"></i></a></li>
-                              </ul>  
-              <select class="select d-inline-block w-auto ml-xl-3 langSel">
-                                  <option value="en" >English</option>
-                                  <option value="es-es"  selected  >Spanish</option>
-                                  <option value="es-mx" >Spanish</option>
-                              </select>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div><!-- header__bottom end -->
-    <coingecko-coin-price-marquee-widget  coin-ids="bitcoin,ethereum,litecoin,ripple,dogecoin,bitcoin-cash" currency="usd" background-color="#000000" locale="en" font-color="#ffffff"></coingecko-coin-price-marquee-widget>
-  </header>
+      <?php
+
+require "header1.php";
+
+?>
   <!-- header-section end  -->
 
     

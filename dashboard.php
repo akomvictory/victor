@@ -28,8 +28,24 @@ if(mysqli_num_rows($res) == 1){
     $post_balance = $fetch['post_balance'];
     $user_name = $fetch['user_name'];
 
-}
+}elseif(mysqli_num_rows($res) < 1 ) {
+  $fetch = mysqli_fetch_assoc($res);
+  $deposit_wallet_balance = 0;
+  $Interest_wallet_balance = 0;
+  $total_invest = 0;
+  $total_deposit = 10;
+  $total_withdraw = 0;
+  $referral_earnings = 0;
 
+  $date = 'undefine';
+  $transaction_id = 'undefine';
+  $amount = 0;
+  $wallet = 'undefine';
+  
+  $details = 'undefine';
+  $post_balance = 0;
+  $user_name = 'undefine';
+}
 ?>
 
 

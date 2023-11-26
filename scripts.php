@@ -90,7 +90,7 @@ if(isset($_POST['signup_one'])){
     $email_check = "SELECT * FROM usertable WHERE email='$email'";
     $res = mysqli_query($con, $email_check);
     if(mysqli_num_rows($res) > 0){
-        header('location: register.php');
+        header('location: login.php');
     }
 
  
